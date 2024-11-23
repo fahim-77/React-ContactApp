@@ -1,18 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import Contact from "./Contact";
 import Header from "./Header";
+import FormData from "./FormData";
+import ContactList from "./ContactList";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [contact, setContact] = useState([]);
   return (
     <>
-      <main className="flex flex-col gap-8 h-screen justify-start">
+      <main className="flex flex-col gap-12 h-screen justify-center items-center">
         <Header />
-        <Contact />
+        <div className="flex w-[980px] max-w-[980px] mx-auto gap-8 items-start justify-center h-full">
+          <FormData contact={contact} setContact={setContact} />
+          <ContactList contact={contact} setContact={setContact} />
+        </div>
       </main>
     </>
   );
